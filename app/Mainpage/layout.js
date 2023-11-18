@@ -9,7 +9,9 @@ export default function MainpageLayout({
       <div className="mainpage">
         <Sidebar />
 
+        <span className="child">
         {children}
+        </span>
       </div>
     </section>
   );
