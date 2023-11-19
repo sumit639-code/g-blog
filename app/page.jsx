@@ -17,7 +17,7 @@ const page = () => {
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ type: 'spring',duration: 0.2, delay: index * 0.1 }}
+              transition={{ type: "inertia", velocity: 10,duration: 0.2, delay: index * 0.1 }}
             >
               {letter}
             </motion.span>
