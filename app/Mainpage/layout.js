@@ -8,7 +8,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Sidebar from "@/components/sidebar";
 import { useRouter } from "next/navigation";
-
+const animations = {
+  initial: { opacity: 0, x: 100 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -100 },
+};
 export default function MainpageLayout({
   children, // will be a page or nested layout
 }) {
@@ -20,16 +24,17 @@ export default function MainpageLayout({
         <Sidebar />
 
         <span className="child">
-          <AnimatePresence mode="wait">
-            <motion.main
-              key={route.pathname}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ delay: 0.65 }}
+          <AnimatePresence mode="popLayout" initial={true}>
+            <motion.div
+              // key={route.pathname}
+              variants={animations}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.5 }}
             >
               {children}
-            </motion.main>
+            </motion.div>
           </AnimatePresence>
         </span>
       </div>
