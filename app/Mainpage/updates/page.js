@@ -27,7 +27,6 @@ const page = ({ response }) => {
   if (!data) return <p>No profile data</p>;
 
   // const [data, setdata] =  useState();
-  console.log(data.articles);
   return (
     <>
       <motion.div
