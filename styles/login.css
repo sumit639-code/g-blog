@@ -1,3 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login{
+    left: 60%;
+    top: 30%;
+    margin-left: -25%;
+    position: absolute;
+    /* margin-top: 20px; */
+}
+
+.logins{
+    display: flex;
+    flex-direction: row;
+}
+.title{
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
 .icons{
-    width: 40px;
+    width: 20px;
+    height: 20px;
 }
