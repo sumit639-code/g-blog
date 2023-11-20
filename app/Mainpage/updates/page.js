@@ -2,6 +2,12 @@
 import Update from "@/components/update";
 import React, { useEffect, useState } from "react";
 import Loading from "@/components/loading";
+import {motion} from "framer-motion";
+const animations = {
+  initial: { opacity: 0, x: 100 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -100 },
+};
 const page = ({ response }) => {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -17,17 +23,25 @@ const page = ({ response }) => {
       });
   }, []);
 
-  if (isLoading) return <Loading/>;
+  if (isLoading) return <Loading />;
   if (!data) return <p>No profile data</p>;
 
   // const [data, setdata] =  useState();
-  console.log(data.articles
-    )
+  console.log(data.articles);
   return (
     <>
-      {data.articles.map((e,i)=>{
-        return <Update {...e} key={i}/>
-      })}
+      <motion.div
+              // key={route.pathname}
+              variants={animations}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ type: "spring", duration: 0.6 }}
+            >
+        {data.articles.map((e, i) => {
+          return <Update {...e} key={i} />;
+        })}
+      </motion.div>
     </>
   );
 };
