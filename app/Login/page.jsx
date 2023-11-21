@@ -10,6 +10,9 @@ const login = () => {
     try {
       supabase.auth.signInWithOAuth({
         provider: "google",
+        options: {
+          redirectTo: "http://localhost:3000/Mainpage",
+        },
       });
     } catch (err) {
       console.log(err);
@@ -20,6 +23,9 @@ const login = () => {
     try {
       supabase.auth.signInWithOAuth({
         provider: "github",
+        options: {
+          redirectTo: "http://localhost:3000/Mainpage",
+        },
       });
     } catch (err) {
       console.log(err);
