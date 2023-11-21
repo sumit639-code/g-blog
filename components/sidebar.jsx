@@ -1,14 +1,26 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
 import "@/styles/sidebar.css";
+import supabase from "@/supabase";
 const sidebar = () => {
-    
-    const [active, setactive] = useState(1)
+  const logout = async (event) => {
+    event.preventDefault();
+    try {
+      supabase.auth.signOut();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const [active, setactive] = useState(1);
   return (
     <>
       <div className="allsection">
-        <Link href="/Mainpage" className={active===1 ? "menu home":"menu"} onClick={()=> setactive(1)}>
+        <Link
+          href="/Mainpage"
+          className={active === 1 ? "menu home" : "menu"}
+          onClick={() => setactive(1)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -25,7 +37,11 @@ const sidebar = () => {
           </svg>
           Home
         </Link>
-        <Link href="/Mainpage/updates" className={active===2 ? "menu update":"menu"} onClick={()=> setactive(2)}>
+        <Link
+          href="/Mainpage/updates"
+          className={active === 2 ? "menu update" : "menu"}
+          onClick={() => setactive(2)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -42,7 +58,10 @@ const sidebar = () => {
           </svg>
           ItUpdates
         </Link>
-        <Link href="/" className={active===3 ? "menu logout":"menu"} onClick={()=> setactive(3)}>
+        <div
+          className={active === 3 ? "menu logout" : "menu"}
+          onClick={logout}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -58,7 +77,7 @@ const sidebar = () => {
             />
           </svg>
           Log Out
-        </Link>
+        </div>
       </div>
     </>
   );
