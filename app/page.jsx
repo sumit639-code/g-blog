@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import ReactPlayer from "react-player/lazy";
 import { motion } from "framer-motion";
 const page = () => {
-  const text = "Welcome to G-BLOGS";
+  const text = "Welcome to Peer-Pulse";
   return (
     <>
       <video autoPlay loop className="video">
