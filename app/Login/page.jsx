@@ -8,7 +8,7 @@ const login = () => {
       <div className="login">
         <div className="title">LOGIN</div>
         <div className="logins ">
-          <Link href="/Mainpage" className="google">
+          <Link href="/Mainpage" className="google button">
             <div className="icons">
               <svg
                 className="w-6 h-6 text-gray-800 dark:text-white"
@@ -27,7 +27,7 @@ const login = () => {
             Login with google
           </Link>
         </div>
-        <div className="Github logins">
+        <div className="Github button">
           <div className="icons">
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
