@@ -21,16 +21,17 @@ export default function RootLayout({ children }) {
       console.log("SIGNED_OUT", session);
     }
   });
-  supabase.auth.onAuthStateChange(async (event, session) => {
+  supabase.auth.onAuthStateChange( (event, session) => {
     // console.log(event, session);
-    const data = await session.access_token
+    // const data = session.access_token;
+    // console
     if (event == "INITIAL_SESSION" && session == !null) {
-      supabase.auth.setSession(data);
+      supabase.auth.setSession(session.refresh_token, session.access_token);
+      console.log(event, session);
     }
     if (event == "INITIAL_SESSION" && session == null) {
       router.push("/Login");
     }
-    console.log(event, session);
   });
 
   // const { data, error } = supabase.auth.setSession({
