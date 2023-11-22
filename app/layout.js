@@ -1,11 +1,12 @@
-"use client"
-import { Inter } from 'next/font/google'
-import './globals.css'
-import supabase from '@/supabase'
-import { useRouter } from 'next/navigation'
-
+"use client";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import supabase from "@/supabase";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect } from "react";
 
 export default function RootLayout({ children }) {
+  // Initialize the user based on the stored session
   const router = useRouter();
   supabase.auth.onAuthStateChange((event, session) => {
     if (event == "SIGNED_IN") {
@@ -16,19 +17,29 @@ export default function RootLayout({ children }) {
 
   supabase.auth.onAuthStateChange((event, session) => {
     if (event == "SIGNED_OUT") {
-      router.push('/Login')
-      console.log("SIGNED_OUT", session)};
+      router.push("/Login");
+      console.log("SIGNED_OUT", session);
+    }
+  });
+  supabase.auth.onAuthStateChange(async (event, session) => {
+    // console.log(event, session);
+    const data = await session.access_token
+    if (event == "INITIAL_SESSION" && session == !null) {
+      supabase.auth.setSession(data);
+    }
+    if (event == "INITIAL_SESSION" && session == null) {
+      router.push("/Login");
+    }
+    console.log(event, session);
   });
 
-  supabase.auth.onAuthStateChange((event, session) => {
-    console.log(event)
-    // if (event == "INITIAL_SESSION") {
-    //   router.push('/Login')
-    //   console.log("SIGNED_OUT", session)};
-  });
+  // const { data, error } = supabase.auth.setSession({
+  //   access_token,
+  //   refresh_token,
+  // });
   return (
     <html lang="en">
-      <body >{children}</body>
+      <body>{children}</body>
     </html>
-  )
+  );
 }
