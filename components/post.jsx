@@ -1,8 +1,9 @@
+import React from "react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import supabase from "@/supabase";
-
-const postwrite = () => {
+import "@/styles/post.css";
+const post = () => {
   const [image, setimage] = useState();
   const [Name, setName] = useState("Loading...");
   useEffect(() => {
@@ -22,26 +23,22 @@ const postwrite = () => {
     }
     getProfiles();
   });
-  console.log(image);
-  const [photos, setphotos] = useState("");
-
   return (
     <>
-      <div className="mainte">
-        <div className="write">
-          <Image src="/vercel.svg" width={30} height={20} alt="avatar" />
-          <textarea name="text" id="content" cols="40" rows="2"></textarea>
+      <div className="postbox">
+        <div className="top">
+          <Image
+            className="avtr"
+            src="/vercel.svg"
+            width={30}
+            height={20}
+            alt="avatar"
+          />
+          <div className="profile">{Name}</div>
         </div>
-        <div className="func">
-          <div className="funcin">
-            <div className="photos">photos</div>
-            <div className="url">Add url</div>
-          </div>
-          <div className="post">Post</div>
-        </div>
+        <div className="imageofpost"></div>
       </div>
     </>
   );
 };
-
-export default postwrite;
+export default post;
