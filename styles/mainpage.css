@@ -1,3 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&family=Lato:wght@300&family=Libre+Baskerville:ital@1&family=Playfair+Display:ital,wght@1,800&family=Poppins:wght@100;300;400;600;700&family=Roboto:ital,wght@0,300;1,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 div{
-    font-family: lato,sans-serif;
+    /* font-family: lato,sans-serif; */
+    font-family: "Jost", sans-serif;
+}
+
+textarea{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.write{
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.mainte{
+    top: 30px;
+    border:  1px solid rgba(172, 168, 168, 0.395);
+    margin: 30px;
+    border-radius: 20px;
+    height: fit-content;
+    padding: 20px;
+    width: 500px;
+    box-shadow: rgba(211, 208, 208, 0.35) 0px 4px 4px 0px;
+}
+
+.funcin{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+.funcin .photos{
+    margin-left: 3px;
+}
+
+.func{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.post{
+    border: 2px solid #00CF9D;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: #00CF9D;
+    color: white;
 }
