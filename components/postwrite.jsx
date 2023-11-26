@@ -2,14 +2,14 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import supabase from "@/supabase";
 
-const postwrite = () => {
+const postwrite = (props) => {
   const [photos, setphotos] = useState("");
   
   return (
     <>
       <div className="mainte">
         <div className="write">
-          <Image src="/vercel.svg" width={50} height={30} alt="avatar" />
+          <Image className="writeavtr" src={props.img} width={40} height={40} alt="avatar" />
           <textarea name="text" id="content" cols="50" rows="3" placeholder="Write here....."></textarea>
         </div>
         <div className="func">
