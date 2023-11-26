@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import supabase from "@/supabase";
 import "@/styles/post.css";
+// import Imageport from "https://images.unsplash.com/photo-1697758885406-4d7136458e18?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
 const post = () => {
   const [image, setimage] = useState();
   const [Name, setName] = useState("Loading...");
@@ -36,7 +38,9 @@ const post = () => {
           />
           <div className="profile">{Name}</div>
         </div>
-        <div className="imageofpost"></div>
+          <div className="textpost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus tenetur quia facilis maiores, sit, consequatur repudiandae sint fugiat fugit similique est dolor porro? Ex enim accusamus dolorum necessitatibus adipisci est.</div>
+          <Image className="postimage" src="/sample.jpg" height={400} width={500} alt="nothing" />
+        
       </div>
     </>
   );
