@@ -18,9 +18,10 @@ const post = (props) => {
   //   }
   //   getProfiles();
   // });
+  // console.log(props)
   return (
     <>
-      <div className="postboxxx">
+      <div className="postboxxx" key={props.key}>
         <div className="top">
           <Image
             className="avtr"
@@ -31,7 +32,7 @@ const post = (props) => {
           />
           <div className="profile">{props.nme}</div>
         </div>
-          <div className="textpost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus tenetur quia facilis maiores, sit, consequatur repudiandae sint fugiat fugit similique est dolor porro? Ex enim accusamus dolorum necessitatibus adipisci est.</div>
+          <div className="textpost">{props.content}</div>
           <Image className="postimage" src="https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2250&q=80" height={400} width={500} alt="nothing" />
         
       </div>

@@ -11,6 +11,7 @@ const animations = {
   exit: { opacity: 0, x: -100 },
 };
 const page = () => {
+  const [posts,setPosts] = useState(null)
   const [image, setimage] = useState();
   const [Name, setName] = useState("Loading...");
   useEffect(() => {
@@ -22,7 +23,16 @@ const page = () => {
       setName(data.user.user_metadata.full_name);
     }
     getProfiles();
+    supabase.from('posts')
+    .select()
+    .order('created_at',{ascending:false})
+    .then((result)=>{
+      if(posts == null){
+        setPosts(result.data)
+      }
+    })
   });
+  console.log(posts)
   return (
     <motion.div
       // key={route.pathname}
@@ -32,8 +42,10 @@ const page = () => {
       exit="exit"
       transition={{ type: "spring", duration: 0.6 }}
     >
-      <Postwrite img={image}/>
-      <Post img={image} nme={Name}/>
+      <Postwrite img={image} nme={Name}/>
+      {posts && posts.map(post => (
+        <Post {...post} img={image} nme={Name} key={posts.id}/>
+      ))}
     </motion.div>
   );
 };
