@@ -27,7 +27,7 @@ const post = () => {
   });
   return (
     <>
-      <div className="postbox">
+      <div className="postboxxx">
         <div className="top">
           <Image
             className="avtr"

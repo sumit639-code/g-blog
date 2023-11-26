@@ -35,8 +35,11 @@ textarea{
     min-width: 300px;
     box-shadow: rgba(211, 208, 208, 0.35) 0px 4px 4px 0px;
 }
-
+textarea{
+    resize: none;
+}
 .funcin{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     margin-left: 50px;
@@ -53,6 +56,7 @@ textarea{
 }
 
 .post{
+    cursor: pointer;
     border: 2px solid #00CF9D;
     padding: 5px 20px;
     border-radius: 10px;

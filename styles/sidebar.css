@@ -55,3 +55,27 @@
 .menu:hover {
     background-color: #82F6DA;
 }
+
+@media only screen and (max-width:600px) {
+    .allsection{
+        position: absolute;
+        position: fixed;
+        /* margin-left: 100%; */
+        bottom: 0px;
+        margin-left: 40px;
+        /* left: 50%; */
+        top: 550px;
+        z-index: 99;
+        flex-direction: row;
+        /* align-self: center; */
+        /* justify-content: center; */
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.427);
+        /* filter:; */
+
+    }
+    .menu{
+        margin: 0px 10px;
+    }
+    
+}
