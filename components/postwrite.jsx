@@ -23,6 +23,16 @@ const postwrite = (props) => {
       getProfiles();
     }
   });
+
+  function addPhotos(ev){
+    const files = ev.target.files;
+    for(const file of files){
+      const newName = Date.now() + file.name;
+      supabase.storage.from('photos').upload(newName, file).then(result=>console.log(result))
+      // console.log(file);
+    }
+
+  }
   // console.log(profile,"profile")
   function createPost(){
     supabase.from('posts').insert({
@@ -50,6 +60,7 @@ const postwrite = (props) => {
         </div>
         <div className="func">
           <div className="funcin">
+            <input type="file" className="fileupload" multiple onChange={addPhotos}/>
             <Image src="/photo.svg" width={20} height ={20} alt="picture" />
             <div className="photos">Photos</div>
             {/* <div className="url">Add url</div> */}

@@ -40,7 +40,7 @@ textarea{
     font-family: Kumbh Sans,sans-serif;
 }
 .funcin{
-    cursor: pointer;
+    /* cursor: pointer; */
     display: flex;
     flex-direction: row;
     margin-left: 50px;
@@ -70,4 +70,12 @@ textarea{
     margin-right: 10px;
     border-radius: 50%;
     /* overflow: hidden; */
+}
+
+.fileupload{
+    position: absolute;
+    /* z-index: -1; */
+    opacity: 0;
+    cursor: pointer;
+    /* visibility: hidden; */
 }
