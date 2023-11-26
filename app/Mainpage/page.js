@@ -11,9 +11,10 @@ const animations = {
   exit: { opacity: 0, x: -100 },
 };
 const page = () => {
-  const [posts,setPosts] = useState(null)
+  const [posts, setPosts] = useState(null);
   const [image, setimage] = useState();
   const [Name, setName] = useState("Loading...");
+  let count =0;
   useEffect(() => {
     async function getProfiles() {
       const { data, error } = await supabase.auth.getUser();
@@ -23,16 +24,22 @@ const page = () => {
       setName(data.user.user_metadata.full_name);
     }
     getProfiles();
-    supabase.from('posts')
-    .select()
-    .order('created_at',{ascending:false})
-    .then((result)=>{
-      if(posts == null){
-        setPosts(result.data)
-      }
-    })
-  });
-  console.log(posts)
+    fetchPost();
+  },[count]);
+  function fetchPost() {
+    supabase
+      .from("posts")
+      .select("id,content,created_at,profiles(id,avatar,name)")
+      .order("created_at", { ascending: false })
+      .then((result) => {
+        console.log(result);
+        setPosts(result.data);
+        // if (posts == null) {
+        //   console.log(posts)
+        // }
+      });
+  }
+  console.log(posts);
   return (
     <motion.div
       // key={route.pathname}
@@ -42,10 +49,11 @@ const page = () => {
       exit="exit"
       transition={{ type: "spring", duration: 0.6 }}
     >
-      <Postwrite img={image} nme={Name}/>
-      {posts && posts.map(post => (
-        <Post {...post} img={image} nme={Name} key={posts.id}/>
-      ))}
+      <Postwrite onPost={fetchPost} img={image} nme={Name} />
+      {posts &&
+        posts.map((post) => (
+          <Post {...post} img={image} nme={Name} key={posts.created_at} />
+        ))}
     </motion.div>
   );
 };

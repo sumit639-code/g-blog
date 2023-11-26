@@ -37,6 +37,7 @@ textarea{
 }
 textarea{
     resize: none;
+    font-family: Kumbh Sans,sans-serif;
 }
 .funcin{
     cursor: pointer;

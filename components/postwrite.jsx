@@ -31,8 +31,13 @@ const postwrite = (props) => {
     }).then(res=>{
       if(!res.error){
         setContent("");
+        console.log(props.onPost)
+        if(props.onPost){
+          props.onPost();
+        }
       }
     })
+
   }
   return (
     <>
