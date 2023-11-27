@@ -79,3 +79,23 @@ textarea{
     cursor: pointer;
     /* visibility: hidden; */
 }
+
+.importimage{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.up2{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+   
+
+}
+
+.uploading{
+    margin: 10px;
+}

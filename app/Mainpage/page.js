@@ -29,7 +29,7 @@ const page = () => {
   function fetchPost() {
     supabase
       .from("posts")
-      .select("id,content,created_at,profiles(id,avatar,name)")
+      .select("id,content,created_at,photos,profiles(id,avatar,name)")
       .order("created_at", { ascending: false })
       .then((result) => {
         console.log(result);
