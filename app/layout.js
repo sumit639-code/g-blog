@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import supabase from "@/supabase";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+
 
 export default function RootLayout({ children }) {
   // Initialize the user based on the stored session

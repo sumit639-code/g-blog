@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import supabase from "@/supabase";
 import "@/styles/post.css";
-
 const post = (props) => {
   return (
     <>
