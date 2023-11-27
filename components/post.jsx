@@ -3,22 +3,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import supabase from "@/supabase";
 import "@/styles/post.css";
-// import Imageport from "https://images.unsplash.com/photo-1697758885406-4d7136458e18?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 const post = (props) => {
-  // const [image, setimage] = useState();
-  // const [Name, setName] = useState("Loading...");
-  // useEffect(() => {
-  //   async function getProfiles() {
-  //     const { data, error } = await supabase.auth.getUser();
-
-  //     console.log(data.user.user_metadata);
-  //     setimage(data.user.user_metadata.avatar_url);
-  //     setName(data.user.user_metadata.full_name);
-  //   }
-  //   getProfiles();
-  // });
-  // console.log(props.photos[0])
   return (
     <>
       <div className="postboxxx" key={props.key}>
