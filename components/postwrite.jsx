@@ -46,9 +46,12 @@ const postwrite = (props) => {
       setIsuploading(false);
     }
   }
+  
   // console.log(profile,"profile")
   function createPost() {
-    supabase
+    console.log(Content)
+    if(Content != undefined){
+      supabase
       .from("posts")
       .insert({
         author: profile,
@@ -65,6 +68,7 @@ const postwrite = (props) => {
           }
         }
       });
+    }
   }
   return (
     <>
