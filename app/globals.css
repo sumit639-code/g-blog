@@ -5,6 +5,7 @@ button {
   margin: 10px;
 }
 .mainpage {
+  /* width: 100vw; */
   display: flex;
   flex-direction: row;
 }

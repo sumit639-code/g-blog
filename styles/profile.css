@@ -1,0 +1,31 @@
+.cover-image{
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+}
+.mainprf{
+    margin-top: 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 500px;
+    min-width: 300px;
+    max-width: 600px;
+    font-family: lato,sans-serif;
+}
+.prof{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.post-section{
+    margin: 0%;
+}
+.post-section button{
+    cursor: pointer;
+    border: 0px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.384);
+    background-color: transparent;
+    text-transform: capitalize;
+    border-radius: 10px;
+
+}
