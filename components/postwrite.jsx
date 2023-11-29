@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import supabase from "@/supabase";
+import Link from "next/link";
 
 const postwrite = (props) => {
   const [photos, setphotos] = useState("");
@@ -46,41 +47,43 @@ const postwrite = (props) => {
       setIsuploading(false);
     }
   }
-  
+
   // console.log(profile,"profile")
   function createPost() {
-    console.log(Content)
-    if(Content != undefined){
+    console.log(Content);
+    if (Content != undefined) {
       supabase
-      .from("posts")
-      .insert({
-        author: profile,
-        content: Content,
-        photos: uploading,
-      })
-      .then((res) => {
-        if (!res.error) {
-          setContent("");
-          setUploading([]);
-          console.log(props.onPost);
-          if (props.onPost) {
-            props.onPost();
+        .from("posts")
+        .insert({
+          author: profile,
+          content: Content,
+          photos: uploading,
+        })
+        .then((res) => {
+          if (!res.error) {
+            setContent("");
+            setUploading([]);
+            console.log(props.onPost);
+            if (props.onPost) {
+              props.onPost();
+            }
           }
-        }
-      });
+        });
     }
   }
   return (
     <>
       <div className="mainte">
         <div className="write">
-          <Image
-            className="writeavtr"
-            src={props.img}
-            width={40}
-            height={40}
-            alt="avatar"
-          />
+          <Link href="/Mainpage/profile">
+            <Image
+              className="writeavtr"
+              src={props.img}
+              width={40}
+              height={40}
+              alt="avatar"
+            />
+          </Link>
           <textarea
             value={Content}
             onChange={(e) => {

@@ -3,11 +3,14 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import supabase from "@/supabase";
 import "@/styles/post.css";
+import Link from "next/link";
+
 const post = (props) => {
+  console.log(props);
   return (
     <>
       <div className="postboxxx" key={props.key}>
-        <div className="top">
+        <Link href={`/Mainpage/profile/`+props.profiles.id} className="top link">
           <Image
             className="avtr"
             src={props.profiles.avatar}
@@ -16,7 +19,7 @@ const post = (props) => {
             alt="avatar"
           />
           <div className="profile">{props.profiles.name}</div>
-        </div>
+        </Link>
         <div className="textpost">{props.content}</div>
         {/* <Image className="postimage" src="https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2250&q=80" height={400} width={500} alt="nothing" />
          */}
