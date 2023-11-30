@@ -16,9 +16,9 @@ const update = (props) => {
         <div className="bottom">
           <div className="salary">
             salary:-
-            <div>min-salary : {props.salary && props.salary.min_salary},</div>
+            <div>min-salary : {props.salary && props.salary.min_salary} || {props.salary && props.salary.currency},</div>
             <div>
-              max-salary :{props.salary && props.salary.max_salary},
+              max-salary :{props.salary && props.salary.max_salary} || {props.salary && props.salary.currency},
             </div>{" "}
             <div>
               salary_type:
