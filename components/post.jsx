@@ -6,7 +6,7 @@ import "@/styles/post.css";
 import Link from "next/link";
 
 const post = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <div className="postboxxx" key={props.key}>

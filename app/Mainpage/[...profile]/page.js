@@ -35,7 +35,7 @@ const page = () => {
       }
     })
   }, [query])
-  console.log(profile)
+  // console.log(profile)
   return (
     <>
       <motion.div

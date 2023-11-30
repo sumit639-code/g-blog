@@ -4,7 +4,11 @@ import "./globals.css";
 import supabase from "@/supabase";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import TimeAgo from 'javascript-time-ago'
 
+import en from 'javascript-time-ago/locale/en.json'
+
+TimeAgo.addDefaultLocale(en)
 export default function RootLayout({ children }) {
   let count = 0;
   // Initialize the user based on the stored session
@@ -14,14 +18,14 @@ export default function RootLayout({ children }) {
     supabase.auth.onAuthStateChange((event, session) => {
       if (event == "SIGNED_IN") {
         router.push("/Mainpage");
-        console.log("SIGNED_IN", session);
+        // console.log("SIGNED_IN", session);
       }
     });
 
     supabase.auth.onAuthStateChange((event, session) => {
       if (event == "SIGNED_OUT") {
         router.push("/Login");
-        console.log("SIGNED_OUT", session);
+        // console.log("SIGNED_OUT", session);
       }
     });
     supabase.auth.onAuthStateChange((event, session) => {
@@ -30,7 +34,7 @@ export default function RootLayout({ children }) {
       // console
       if (event == "INITIAL_SESSION" && session == !null) {
         supabase.auth.setSession(session.refresh_token, session.access_token);
-        console.log(event, session);
+        // console.log(event, session);
       }
       if (event == "INITIAL_SESSION" && session == null) {
         router.push("/Login");

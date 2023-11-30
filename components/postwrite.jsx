@@ -37,7 +37,7 @@ const postwrite = (props) => {
                 "/storage/v1/object/public/photos/" +
                 result.data.path;
               setUploading((prevupload) => [...prevupload, url]);
-              console.log(result.data);
+              // console.log(result.data);
             } else {
               console.log(result);
             }
@@ -63,7 +63,7 @@ const postwrite = (props) => {
           if (!res.error) {
             setContent("");
             setUploading([]);
-            console.log(props.onPost);
+            // console.log(props.onPost);
             if (props.onPost) {
               props.onPost();
             }

@@ -10,8 +10,8 @@
 .top {
   display: flex;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.352);
-  border-radius: 20px;
+  /* border: 1px solid rgba(0, 0, 0, 0.352);
+  border-radius: 20px; */
   /* width: fit-content; */
 }
 .profile {
@@ -46,4 +46,10 @@
   /* text-decoration:dotted; */
   margin: 10px 0px;
   margin-top: 20px;
+}
+
+.publication{
+  font-family: lato,sans-serif;
+  color: rgb(49, 49, 49);
+  margin-top: 10px;
 }
